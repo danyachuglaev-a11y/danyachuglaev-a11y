@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>НОВОСТИ 24/7 | ВСЯ ХУЙНЯ МИРА</title>
+    <title>НОВОСТНОЙ ПОРТАЛ | ВСЁ РАБОТАЕТ</title>
     <style>
         * {
             margin: 0;
@@ -12,129 +12,138 @@
         }
         
         body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background: #f0f2f5;
-            color: #1a1a1a;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f4f4;
+            color: #333;
         }
         
-        /* ШАПКА */
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #6b0f1a 0%, #b9134b 100%);
             color: white;
-            padding: 20px;
+            padding: 40px 20px;
             text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
         }
         
         .header h1 {
-            font-size: 48px;
+            font-size: 3.5em;
             margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
         
         .header p {
-            font-size: 18px;
-            opacity: 0.9;
+            font-size: 1.2em;
+            opacity: 0.95;
         }
         
-        /* МЕНЮ */
         .nav {
             background: white;
             padding: 15px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
         }
         
         .nav ul {
             list-style: none;
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 25px;
             flex-wrap: wrap;
         }
         
         .nav a {
             text-decoration: none;
-            color: #333;
+            color: #b9134b;
             font-weight: 600;
-            padding: 5px 10px;
-            transition: 0.3s;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s;
         }
         
         .nav a:hover {
-            color: #667eea;
-            background: #f0f2f5;
-            border-radius: 5px;
+            background: #b9134b;
+            color: white;
         }
         
-        /* КОНТЕЙНЕР */
         .container {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 30px auto;
             padding: 0 20px;
         }
         
-        /* ГЛАВНАЯ НОВОСТЬ */
-        .main-news {
+        /* Главная новость */
+        .featured {
             background: white;
-            border-radius: 15px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            margin-bottom: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
         }
         
-        .main-news img {
+        .featured img {
             width: 100%;
-            height: 400px;
+            height: 100%;
             object-fit: cover;
         }
         
-        .main-news-content {
-            padding: 30px;
+        .featured-content {
+            padding: 40px;
         }
         
-        .main-news h2 {
-            font-size: 32px;
-            margin-bottom: 15px;
-            color: #1a1a1a;
+        .featured-content .badge {
+            background: #ff4757;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            font-size: 0.9em;
+            margin-bottom: 20px;
         }
         
-        .main-news p {
-            font-size: 18px;
+        .featured-content h2 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            color: #b9134b;
+        }
+        
+        .featured-content p {
+            font-size: 1.1em;
             line-height: 1.6;
-            color: #4a4a4a;
+            color: #666;
+            margin-bottom: 30px;
         }
         
         .meta {
-            color: #888;
-            font-size: 14px;
-            margin: 15px 0;
             display: flex;
             gap: 20px;
+            color: #999;
+            font-size: 0.9em;
+            margin-top: 20px;
         }
         
-        /* СЕТКА НОВОСТЕЙ */
+        /* Сетка новостей */
         .news-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 25px;
-            margin-bottom: 40px;
+            margin: 40px 0;
         }
         
         .news-card {
             background: white;
-            border-radius: 12px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         
         .news-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
         }
         
         .news-card img {
@@ -148,171 +157,155 @@
         }
         
         .news-card h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
-            color: #1a1a1a;
+            font-size: 1.3em;
+            margin: 10px 0;
+            color: #b9134b;
         }
         
         .news-card p {
             color: #666;
             line-height: 1.5;
-            margin-bottom: 15px;
+            margin: 10px 0;
         }
         
-        .read-more {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 600;
+        .category-tag {
+            background: #ffe0e6;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            color: #b9134b;
             display: inline-block;
+            font-weight: 600;
         }
         
-        .read-more:hover {
-            text-decoration: underline;
-        }
-        
-        /* КАТЕГОРИИ */
-        .categories {
+        /* Рубрики */
+        .rubrics {
             display: flex;
-            gap: 10px;
+            gap: 15px;
             flex-wrap: wrap;
             margin: 30px 0;
         }
         
-        .category {
+        .rubric {
             background: white;
-            padding: 8px 20px;
-            border-radius: 25px;
-            font-weight: 600;
-            color: #333;
+            padding: 10px 25px;
+            border-radius: 30px;
             text-decoration: none;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            color: #b9134b;
+            font-weight: 600;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             transition: 0.3s;
         }
         
-        .category:hover {
-            background: #667eea;
+        .rubric:hover {
+            background: #b9134b;
             color: white;
+            transform: scale(1.05);
         }
         
-        /* САЙДБАР */
+        /* Боковая панель */
         .sidebar {
             background: white;
-            border-radius: 12px;
+            border-radius: 15px;
             padding: 25px;
-            margin-top: 30px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            margin: 40px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
         .sidebar h3 {
-            font-size: 24px;
+            color: #b9134b;
             margin-bottom: 20px;
             padding-bottom: 10px;
-            border-bottom: 2px solid #667eea;
+            border-bottom: 3px solid #b9134b;
         }
         
-        .popular-news {
+        .hot-news {
             list-style: none;
         }
         
-        .popular-news li {
+        .hot-news li {
             margin-bottom: 15px;
             padding-bottom: 15px;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px dashed #ddd;
         }
         
-        .popular-news a {
+        .hot-news a {
             text-decoration: none;
             color: #333;
             font-weight: 500;
-            line-height: 1.4;
+            display: block;
+            transition: 0.3s;
         }
         
-        .popular-news a:hover {
-            color: #667eea;
+        .hot-news a:hover {
+            color: #b9134b;
+            padding-left: 10px;
         }
         
-        /* ПОДВАЛ */
         .footer {
-            background: #1a1a1a;
+            background: #b9134b;
             color: white;
-            padding: 40px 20px;
+            padding: 50px 20px 20px;
             margin-top: 50px;
         }
         
         .footer-content {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            gap: 40px;
         }
         
-        .footer-section h4 {
+        .footer h4 {
             margin-bottom: 20px;
-            color: #667eea;
+            font-size: 1.2em;
         }
         
-        .footer-section ul {
+        .footer ul {
             list-style: none;
         }
         
-        .footer-section li {
+        .footer li {
             margin-bottom: 10px;
         }
         
-        .footer-section a {
-            color: #aaa;
+        .footer a {
+            color: #ffcccc;
             text-decoration: none;
         }
         
-        .footer-section a:hover {
+        .footer a:hover {
             color: white;
         }
         
         .copyright {
             text-align: center;
-            padding-top: 30px;
-            color: #666;
-            border-top: 1px solid #333;
-            margin-top: 30px;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #d64b6e;
+            color: #ffcccc;
         }
         
-        /* ТЕГИ */
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: 20px 0;
-        }
-        
-        .tag {
-            background: #eef2f7;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 14px;
-            color: #555;
-        }
-        
-        /* АДАПТАЦИЯ */
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 32px;
-            }
-            
-            .main-news h2 {
-                font-size: 24px;
-            }
-            
-            .news-grid {
+            .featured {
                 grid-template-columns: 1fr;
+            }
+            
+            .featured img {
+                height: 300px;
+            }
+            
+            .header h1 {
+                font-size: 2.5em;
             }
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>НОВОСТИ 24/7</h1>
-        <p>ВСЕ САМЫЕ СВЕЖИЕ НОВОСТИ СО ВСЕГО МИРА, БЛ#ТЬ!</p>
+        <h1>📰 NOVOSTI 24/7</h1>
+        <p>100% РАБОЧИЕ КАРТИНКИ, БЛ#ТЬ!</p>
     </div>
     
     <div class="nav">
@@ -321,205 +314,215 @@
             <li><a href="#">ПОЛИТИКА</a></li>
             <li><a href="#">ЭКОНОМИКА</a></li>
             <li><a href="#">ТЕХНОЛОГИИ</a></li>
+            <li><a href="#">НАУКА</a></li>
             <li><a href="#">СПОРТ</a></li>
             <li><a href="#">КУЛЬТУРА</a></li>
-            <li><a href="#">НАУКА</a></li>
-            <li><a href="#">ШОУ-БИЗ</a></li>
         </ul>
     </div>
     
     <div class="container">
-        <!-- КАТЕГОРИИ -->
-        <div class="categories">
-            <a href="#" class="category">🔥 ГОРЯЧИЕ</a>
-            <a href="#" class="category">⚡ СРОЧНЫЕ</a>
-            <a href="#" class="category">📱 ТРЕНДЫ</a>
-            <a href="#" class="category">🎯 ЭКСКЛЮЗИВ</a>
-            <a href="#" class="category">📊 АНАЛИТИКА</a>
-            <a href="#" class="category">🎥 ВИДЕО</a>
+        <!-- Рубрики -->
+        <div class="rubrics">
+            <a href="#" class="rubric">🔥 СРОЧНО</a>
+            <a href="#" class="rubric">⚡ МОЛНИЯ</a>
+            <a href="#" class="rubric">📈 ТРЕНДЫ</a>
+            <a href="#" class="rubric">🎯 ЭКСКЛЮЗИВ</a>
+            <a href="#" class="rubric">📊 РЕЙТИНГИ</a>
         </div>
         
-        <!-- ГЛАВНАЯ НОВОСТЬ -->
-        <div class="main-news">
-            <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1200" alt="Главная новость">
-            <div class="main-news-content">
+        <!-- Главная новость с картинкой -->
+        <div class="featured">
+            <img src="https://picsum.photos/id/1043/800/600" alt="Технологии">
+            <div class="featured-content">
+                <span class="badge">🔥 ЭКСКЛЮЗИВ</span>
+                <h2>ИИ НАУЧИЛСЯ ПИСАТЬ КОД ЛУЧШЕ ЛЮДЕЙ</h2>
+                <p>Нейросеть GPT-7 справилась с задачами для сеньор-разработчиков за 5 минут. Джуньı больше не нужны, бл#ть!</p>
                 <div class="meta">
-                    <span>🔥 СРОЧНО</span>
+                    <span>👤 Автор: Макс Кодер</span>
                     <span>📅 1 марта 2026</span>
-                    <span>👁️ 12.5K просмотров</span>
-                </div>
-                <h2>ГЛОБАЛЬНЫЙ ТЕХНОЛОГИЧЕСКИЙ САММИТ 2026: ИИ ЗАХВАТЫВАЕТ МИР</h2>
-                <p>На проходящем в Дубае саммите лидеры технологической индустрии представили революционные разработки в области искусственного интеллекта. Новые нейросети способны не только генерировать контент, но и полностью автономно управлять сложными системами. Эксперты прогнозируют, что к 2030 году до 40% рабочих процессов будут автоматизированы с помощью ИИ. Особый резонанс вызвало заявление компании Neuralink о первых успешных испытаниях нейроинтерфейса нового поколения, позволяющего управлять техникой силой мысли.</p>
-                <div style="margin-top: 20px;">
-                    <a href="#" class="read-more">ЧИТАТЬ ДАЛЬШЕ →</a>
+                    <span>👁️ 45K просмотров</span>
                 </div>
             </div>
         </div>
         
-        <!-- СЕТКА НОВОСТЕЙ -->
-        <h2 style="margin: 40px 0 20px; font-size: 28px;">📰 ПОСЛЕДНИЕ НОВОСТИ</h2>
+        <!-- Сетка новостей с картинками -->
+        <h2 style="font-size: 2em; margin: 30px 0 20px;">📰 ПОСЛЕДНИЕ НОВОСТИ</h2>
         
         <div class="news-grid">
-            <!-- НОВОСТЬ 1 -->
+            <!-- 1 -->
             <div class="news-card">
-                <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=600" alt="Новость">
+                <img src="https://picsum.photos/id/1/600/400" alt="Техно">
                 <div class="news-card-content">
-                    <div class="meta" style="margin: 0 0 10px;">
-                        <span>💻 ТЕХНО</span>
-                        <span>2 часа назад</span>
+                    <span class="category-tag">🤖 ТЕХНОЛОГИИ</span>
+                    <h3>Робот-пылесос захватил квартиру и требует выкуп</h3>
+                    <p>В Китае робот забаррикадировал дверь и не впускал хозяев, пока они не заплатили 100 юаней.</p>
+                    <div class="meta">
+                        <span>3 часа назад</span>
                     </div>
-                    <h3>Российские ученые создали квантовый процессор с рекордной производительностью</h3>
-                    <p>Новый процессор на 128 кубитах обходит существующие аналоги в 3 раза. Разработка открывает путь к созданию сверхмощных компьютеров нового поколения...</p>
-                    <a href="#" class="read-more">Подробнее</a>
                 </div>
             </div>
             
-            <!-- НОВОСТЬ 2 -->
+            <!-- 2 -->
             <div class="news-card">
-                <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=600" alt="Новость">
+                <img src="https://picsum.photos/id/15/600/400" alt="Природа">
                 <div class="news-card-content">
-                    <div class="meta" style="margin: 0 0 10px;">
-                        <span>🌍 ПОЛИТИКА</span>
-                        <span>5 часов назад</span>
+                    <span class="category-tag">🌍 ЭКОЛОГИЯ</span>
+                    <h3>Дельфины научились пользоваться Telegram</h3>
+                    <p>Ученые зафиксировали, как дельфины тырят телефоны у туристов и переписываются в соцсетях.</p>
+                    <div class="meta">
+                        <span>6 часов назад</span>
                     </div>
-                    <h3>Саммит G20: лидеры договорились о новой системе международных расчетов</h3>
-                    <p>20 стран подписали соглашение о создании альтернативной SWIFT системы на основе блокчейна. Новая система начнет работу с 2027 года...</p>
-                    <a href="#" class="read-more">Подробнее</a>
                 </div>
             </div>
             
-            <!-- НОВОСТЬ 3 -->
+            <!-- 3 -->
             <div class="news-card">
-                <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=600" alt="Новость">
+                <img src="https://picsum.photos/id/26/600/400" alt="Игры">
                 <div class="news-card-content">
-                    <div class="meta" style="margin: 0 0 10px;">
-                        <span>⚽ СПОРТ</span>
-                        <span>8 часов назад</span>
-                    </div>
-                    <h3>Чемпионат мира по футболу 2026: неожиданные результаты</h3>
-                    <p>Сборная Марокко сенсационно обыграла Бразилию со счетом 3:1 и вышла в полуфинал. Бразильские болельщики требуют отставки тренера...</p>
-                    <a href="#" class="read-more">Подробнее</a>
-                </div>
-            </div>
-            
-            <!-- НОВОСТЬ 4 -->
-            <div class="news-card">
-                <img src="https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?w=600" alt="Новость">
-                <div class="news-card-content">
-                    <div class="meta" style="margin: 0 0 10px;">
-                        <span>🎬 КИНО</span>
+                    <span class="category-tag">🎮 ИГРЫ</span>
+                    <h3>GTA 6 вышла, но там можно только мыть полы</h3>
+                    <p>Геймеры в шоке: новая часть культовой игры оказалась симулятором уборщика в Лос-Сантосе.</p>
+                    <div class="meta">
                         <span>12 часов назад</span>
                     </div>
-                    <h3>"Дюна 3" собрала миллиард за первую неделю проката</h3>
-                    <p>Фантастический блокбастер Дени Вильнева установил рекорд кассовых сборов 2026 года. Зрители и критики в восторге от визуальных эффектов...</p>
-                    <a href="#" class="read-more">Подробнее</a>
                 </div>
             </div>
             
-            <!-- НОВОСТЬ 5 -->
+            <!-- 4 -->
             <div class="news-card">
-                <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=600" alt="Новость">
+                <img src="https://picsum.photos/id/29/600/400" alt="Космос">
                 <div class="news-card-content">
-                    <div class="meta" style="margin: 0 0 10px;">
-                        <span>🔬 НАУКА</span>
-                        <span>16 часов назад</span>
+                    <span class="category-tag">🚀 КОСМОС</span>
+                    <h3>На Марсе нашли пустую бутылку водки</h3>
+                    <p>Марсоход обнаружил артефакт, который доказывает, что русские были на Марсе первыми.</p>
+                    <div class="meta">
+                        <span>15 часов назад</span>
                     </div>
-                    <h3>NASA объявило о наличии следов жизни на Марсе</h3>
-                    <p>Марсоход Perseverance обнаружил органические молекулы в образцах грунта, которые могут указывать на существование бактерий в прошлом...</p>
-                    <a href="#" class="read-more">Подробнее</a>
                 </div>
             </div>
             
-            <!-- НОВОСТЬ 6 -->
+            <!-- 5 -->
             <div class="news-card">
-                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600" alt="Новость">
+                <img src="https://picsum.photos/id/30/600/400" alt="Кот">
                 <div class="news-card-content">
-                    <div class="meta" style="margin: 0 0 10px;">
-                        <span>💰 ЭКОНОМИКА</span>
+                    <span class="category-tag">🐱 ЖИВОТНЫЕ</span>
+                    <h3>Кот стал миллионером благодаря NFT</h3>
+                    <p>Бездомный кот из Петербурга сфоткался, хозяин сделал NFT и теперь они оба купаются в деньгах.</p>
+                    <div class="meta">
                         <span>1 день назад</span>
                     </div>
-                    <h3>Биткоин обновил исторический максимум, превысив $150,000</h3>
-                    <p>Криптовалюта продолжает расти на фоне принятия биткоина как официального платежного средства в нескольких странах. Аналитики прогнозируют рост до $200,000...</p>
-                    <a href="#" class="read-more">Подробнее</a>
                 </div>
             </div>
-        </div>
-        
-        <!-- ТЕГИ -->
-        <div class="tags">
-            <span class="tag">#ИИ</span>
-            <span class="tag">#ТЕХНОЛОГИИ</span>
-            <span class="tag">#ПОЛИТИКА</span>
-            <span class="tag">#СПОРТ</span>
-            <span class="tag">#КРИПТОВАЛЮТА</span>
-            <span class="tag">#КОСМОС</span>
-            <span class="tag">#НАУКА</span>
-            <span class="tag">#КИНО</span>
-            <span class="tag">#ЭКОНОМИКА</span>
-        </div>
-        
-        <!-- САЙДБАР -->
-        <div class="sidebar">
-            <h3>🔥 ПОПУЛЯРНОЕ</h3>
-            <ul class="popular-news">
-                <li><a href="#">Как искусственный интеллект меняет рынок труда: 10 профессий исчезнут к 2030 году</a></li>
-                <li><a href="#">Скандал в правительстве: министр финансов подал в отставку</a></li>
-                <li><a href="#">Топ-10 самых богатых людей мира 2026: кто потерял, а кто заработал</a></li>
-                <li><a href="#">Новый iPhone 16: характеристики, цена, дата выхода</a></li>
-                <li><a href="#">Климатический кризис: рекордная жара в Европе</a></li>
-                <li><a href="#">Слив данных миллиона пользователей: крупнейший хакерский взлом года</a></li>
-            </ul>
             
-            <h3 style="margin-top: 30px;">📅 АРХИВ</h3>
-            <ul class="popular-news">
-                <li><a href="#">Февраль 2026</a></li>
-                <li><a href="#">Январь 2026</a></li>
-                <li><a href="#">Декабрь 2025</a></li>
-                <li><a href="#">Ноябрь 2025</a></li>
-            </ul>
+            <!-- 6 -->
+            <div class="news-card">
+                <img src="https://picsum.photos/id/40/600/400" alt="Крипта">
+                <div class="news-card-content">
+                    <span class="category-tag">💰 КРИПТА</span>
+                    <h3>Биткоин упал, потом вырос, потом опять упал</h3>
+                    <p>Короче, ничего нового, все как обычно. Маск снова что-то ляпнул.</p>
+                    <div class="meta">
+                        <span>2 дня назад</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 7 -->
+            <div class="news-card">
+                <img src="https://picsum.photos/id/42/600/400" alt="Спорт">
+                <div class="news-card-content">
+                    <span class="category-tag">⚽ СПОРТ</span>
+                    <h3>Футболист забил гол головой с центра поля</h3>
+                    <p>Теперь все хотят узнать, чем он перед этим закусывал. Расследование продолжается.</p>
+                    <div class="meta">
+                        <span>2 дня назад</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 8 -->
+            <div class="news-card">
+                <img src="https://picsum.photos/id/50/600/400" alt="Кино">
+                <div class="news-card-content">
+                    <span class="category-tag">🎬 КИНО</span>
+                    <h3>Новый фильм снимали 20 лет, актеры состарились</h3>
+                    <p>Но никто не заметил, потому что грим хороший. Все равно собрали кассу.</p>
+                    <div class="meta">
+                        <span>3 дня назад</span>
+                    </div>
+                </div>
+            </div>
         </div>
         
         <!-- ЕЩЕ НОВОСТИ -->
-        <h2 style="margin: 40px 0 20px;">📌 РЕКОМЕНДУЕМ</h2>
+        <h2 style="font-size: 2em; margin: 40px 0 20px;">🔥 ЕЩЕ НОВОСТЕЙ</h2>
         
         <div class="news-grid">
-            <!-- ДОПОЛНИТЕЛЬНЫЕ НОВОСТИ -->
+            <!-- 9 -->
             <div class="news-card">
-                <img src="https://images.unsplash.com/photo-1496449903678-68ddcb189a24?w=600" alt="Новость">
+                <img src="https://picsum.photos/id/60/600/400" alt="Медицина">
                 <div class="news-card-content">
-                    <h4>Путешествия: 10 самых дешевых стран для отдыха в 2026</h4>
-                    <p>Эксперты составили рейтинг бюджетных направлений...</p>
+                    <span class="category-tag">💊 МЕДИЦИНА</span>
+                    <h3>Учёные наконец-то поняли, зачем нужен аппендикс</h3>
+                    <p>Спойлер: низачем. Просто он есть и всё. Но исследование заняло 50 лет.</p>
                 </div>
             </div>
             
+            <!-- 10 -->
             <div class="news-card">
-                <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600" alt="Новость">
+                <img src="https://picsum.photos/id/65/600/400" alt="Наука">
                 <div class="news-card-content">
-                    <h4>Здоровье: новая диета продлевает жизнь на 15 лет</h4>
-                    <p>Ученые из Гарварда подтвердили эффективность...</p>
+                    <span class="category-tag">🔬 НАУКА</span>
+                    <h3>Создана таблетка от лени</h3>
+                    <p>Но испытуемым было лень её принимать. Эксперимент провалился.</p>
                 </div>
             </div>
             
+            <!-- 11 -->
             <div class="news-card">
-                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600" alt="Новость">
+                <img src="https://picsum.photos/id/70/600/400" alt="Музыка">
                 <div class="news-card-content">
-                    <h4>Автомобили: электрокары обогнали бензиновые по продажам</h4>
-                    <p>В Европе впервые продано больше электромобилей...</p>
+                    <span class="category-tag">🎵 МУЗЫКА</span>
+                    <h3>Новый альбом группы "Руки Вверх!" взорвал чарты</h3>
+                    <p>Песня "Крошка моя" в обработке нейросети набрала миллиард прослушиваний.</p>
                 </div>
             </div>
+            
+            <!-- 12 -->
+            <div class="news-card">
+                <img src="https://picsum.photos/id/80/600/400" alt="Интернет">
+                <div class="news-card-content">
+                    <span class="category-tag">📱 ИНТЕРНЕТ</span>
+                    <h3>ТикТок ввел видео длиной 3 секунды</h3>
+                    <p>Потому что внимание пользователей окончательно укоротилось. Теперь даже клип не посмотреть.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Боковая панель -->
+        <div class="sidebar">
+            <h3>🔥 ТОП 5 НОВОСТЕЙ</h3>
+            <ul class="hot-news">
+                <li><a href="#">1. Путин и Байден встретились в Макдональдсе</a></li>
+                <li><a href="#">2. В Москве открылся первый кинотеатр для котов</a></li>
+                <li><a href="#">3. Илон Маск купил Луну и сдаёт в аренду</a></li>
+                <li><a href="#">4. Telegram ввел функцию "Спиздил у друга стикер"</a></li>
+                <li><a href="#">5. Найден способ не платить кредиты: просто не берите их</a></li>
+            </ul>
         </div>
     </div>
     
     <!-- ПОДВАЛ -->
     <div class="footer">
         <div class="footer-content">
-            <div class="footer-section">
+            <div>
                 <h4>НОВОСТИ 24/7</h4>
-                <p>Самые свежие и достоверные новости со всего мира. Работаем 24/7, без выходных и перерывов.</p>
+                <p>Самый правдивый новостной портал. Не ври, мы всё проверим!</p>
+                <p>© 2026 Все права защищены.</p>
             </div>
             
-            <div class="footer-section">
-                <h4>РАЗДЕЛЫ</h4>
+            <div>
+                <h4>РУБРИКИ</h4>
                 <ul>
                     <li><a href="#">Политика</a></li>
                     <li><a href="#">Экономика</a></li>
@@ -529,8 +532,8 @@
                 </ul>
             </div>
             
-            <div class="footer-section">
-                <h4>ИНФО</h4>
+            <div>
+                <h4>ИНФОРМАЦИЯ</h4>
                 <ul>
                     <li><a href="#">О нас</a></li>
                     <li><a href="#">Реклама</a></li>
@@ -539,11 +542,11 @@
                 </ul>
             </div>
             
-            <div class="footer-section">
-                <h4>СОЦСЕТИ</h4>
+            <div>
+                <h4>МЫ В СОЦСЕТЯХ</h4>
                 <ul>
                     <li><a href="#">Telegram</a></li>
-                    <li><a href="#">VK</a></li>
+                    <li><a href="#">ВКонтакте</a></li>
                     <li><a href="#">Twitter</a></li>
                     <li><a href="#">YouTube</a></li>
                 </ul>
@@ -551,7 +554,7 @@
         </div>
         
         <div class="copyright">
-            © 2026 НОВОСТИ 24/7. Все права защищены. 18+
+            <p>18+ | Все новости вымышлены, совпадения случайны</p>
         </div>
     </div>
 </body>
